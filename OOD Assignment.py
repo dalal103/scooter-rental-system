@@ -596,11 +596,19 @@ class ScooterRentalSystem:
 
     def addStation(self, station):
         """Add a station to the system."""
+        for s in self.__stations:
+            if s.getStationID() == station.getStationID():
+                print("Station ID " + station.getStationID() + " already exists.")
+                return
         self.__stations.append(station)
         print("Station " + station.getName() + " added to system.")
 
     def addUser(self, user):
         """Register a new user in the system."""
+        for u in self.__users:
+            if u.getUserID() == user.getUserID():
+                print("User ID " + user.getUserID() + " already exists.")
+                return
         self.__users.append(user)
         print("User " + user.getName() + " registered.")
 
